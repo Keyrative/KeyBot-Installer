@@ -19,9 +19,9 @@ for ($i = 0; $i -lt $height; $i++) {
 # Define variables
 $installerPath = "$env:USERPROFILE\Downloads\python-3.12.1-amd64.exe"
 $pythonUrl = "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
-$acctAuthUrl = "https://raw.githubusercontent.com/keyrative/KeyBot-Installer/refs/heads/main/KeyFiles/AcctAuth3.0.ps1"
-$requirementsUrl = "https://raw.githubusercontent.com/keyrative/TwitchMarkovChain/refs/heads/main/requirements.txt"
-$keyUninstallerUrl = "https://raw.githubusercontent.com/keyrative/KeyBot-Installer/refs/heads/main/KeyFiles/KeyBotUninstaller.ps1"
+$acctAuthUrl = "https://raw.githubusercontent.com/Keyrative/KeyBot-Installer/refs/heads/main/KeyFiles/AcctAuth3.0.ps1"
+$requirementsUrl = "https://raw.githubusercontent.com/Keyrative/TwitchMarkovChain/refs/heads/master/requirements.txt"
+$keyUninstallerUrl = "https://github.com/Keyrative/KeyBot-Installer/raw/refs/heads/main/KeyFiles/KeyBotUninstaller.ps1"
 $pipPath = "C:\Users\$env:USERNAME\AppData\Local\Programs\Python\Python312\Scripts\pip.exe"
 $tempFile = [System.IO.Path]::GetTempFileName()
 
@@ -118,9 +118,7 @@ $keySettingsTempFolder = Join-Path -Path $env:USERPROFILE -ChildPath "Downloads\
 Copy-Item -Path $keySettingsTempFolder\* -Destination "$keySettingsFolder" -Recurse -Force
 
 #Copy KeyBot launcher and icons to documents
-Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\Twitch KeyBot.ps1" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
-Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\key icon.ico" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
-Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\key icon.ico" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\KeyBot.ps1" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\key icon.ico" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\KeyBotUninstaller.ps1" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\KeyEditor.ps1" -Destination "$env:USERPROFILE\Documents\Applications\KeyBot" -Recurse -Force
@@ -129,7 +127,7 @@ Copy-Item -Path "$env:USERPROFILE\Downloads\KeyFiles\KeyBotUpdater.ps1" -Destina
 # Create Desktop shortcut for Twitch KeyBot.ps1
 $scriptPath = "$env:USERPROFILE\Documents\Applications\KeyBot\KeyBot.ps1"
 $desktopPath = [System.IO.Path]::Combine([System.Environment]::GetFolderPath("Desktop"))
-$shortcutPath = [System.IO.Path]::Combine($desktopPath, "Twitch KeyBot.lnk")
+$shortcutPath = [System.IO.Path]::Combine($desktopPath, "KeyBot.lnk")
 $WshShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut($shortcutPath)
 $Shortcut.TargetPath = "powershell.exe"
